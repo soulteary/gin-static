@@ -48,6 +48,12 @@ linters-settings:
           - "!$test"
         allow:
           - github.com/gin-gonic/gin
+          - embed
+          - io/fs
+          - net/http
+          - os
+          - path
+          - strings
 
 run:
   timeout: 3m
