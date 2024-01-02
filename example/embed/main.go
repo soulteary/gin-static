@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
+	static "github.com/soulteary/gin-static"
 )
 
 //go:embed public

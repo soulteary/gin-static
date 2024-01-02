@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
+	static "github.com/soulteary/gin-static"
 	"github.com/stretchr/testify/assert"
 )
 

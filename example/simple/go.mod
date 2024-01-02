@@ -3,7 +3,7 @@ module gin-static-example
 go 1.21.2
 
 require (
-	github.com/gin-contrib/static v0.0.1
+	github.com/soulteary/gin-static v0.0.1
 	github.com/gin-gonic/gin v1.9.1
 )
 
@@ -34,4 +34,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/gin-contrib/static => ../../
+replace github.com/soulteary/gin-static => ../../

@@ -1,4 +1,4 @@
-module github.com/gin-contrib/static
+module github.com/soulteary/gin-static
 
 go 1.21
 
@@ -38,4 +38,4 @@ require (
 )
 
 
-replace github.com/gin-contrib/static => ./
+replace github.com/soulteary/gin-static => ./

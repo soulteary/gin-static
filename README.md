@@ -1,9 +1,9 @@
 # Gin Static Middleware
 
-[![Run Tests](https://github.com/gin-contrib/static/actions/workflows/go.yml/badge.svg)](https://github.com/gin-contrib/static/actions/workflows/go.yml)
-[![codecov](https://codecov.io/gh/gin-contrib/static/branch/master/graph/badge.svg)](https://codecov.io/gh/gin-contrib/static)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gin-contrib/static)](https://goreportcard.com/report/github.com/gin-contrib/static)
-[![GoDoc](https://godoc.org/github.com/gin-contrib/static?status.svg)](https://godoc.org/github.com/gin-contrib/static)
+[![Run Tests](https://github.com/soulteary/gin-static/actions/workflows/go.yml/badge.svg)](https://github.com/soulteary/gin-static/actions/workflows/go.yml)
+[![codecov](https://codecov.io/gh/soulteary/static/branch/master/graph/badge.svg)](https://codecov.io/gh/soulteary/static)
+[![Go Report Card](https://goreportcard.com/badge/github.com/soulteary/gin-static)](https://goreportcard.com/report/github.com/soulteary/gin-static)
+[![GoDoc](https://godoc.org/github.com/soulteary/gin-static?status.svg)](https://godoc.org/github.com/soulteary/gin-static)
 
 Static middleware, support both local files and embed filesystem.
 
@@ -16,13 +16,13 @@ No historical burden, using go 1.21, 100% code coverage.
 Download and install it:
 
 ```bash
-go get github.com/gin-contrib/static
+go get github.com/soulteary/gin-static
 ```
 
 Import it in your code:
 
 ```go
-import "github.com/gin-contrib/static"
+import "github.com/soulteary/gin-static"
 ```
 
 ## Example
@@ -39,7 +39,7 @@ package main
 import (
 	"log"
 
-	"github.com/gin-contrib/static"
+	static "github.com/soulteary/gin-static"
 	"github.com/gin-gonic/gin"
 )
 
@@ -77,7 +77,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-contrib/static"
+	static "github.com/soulteary/gin-static"
 	"github.com/gin-gonic/gin"
 )
 
