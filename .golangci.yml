@@ -39,6 +39,16 @@ linters:
     - whitespace
     - gofumpt
 
+linters-settings:
+  depguard:
+    rules:
+      prevent_unmaintained_packages:
+        files:
+          - $all
+          - "!$test"
+        allow:
+          - github.com/gin-gonic/gin
+
 run:
   timeout: 3m
   tests: false
