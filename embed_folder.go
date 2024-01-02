@@ -4,7 +4,6 @@ import (
 	"embed"
 	"io/fs"
 	"net/http"
-	"os"
 )
 
 type embedFileSystem struct {
@@ -18,7 +17,7 @@ func (e embedFileSystem) Exists(prefix string, path string) bool {
 
 func EmbedFolder(fsEmbed embed.FS, targetPath string) (ServeFileSystem, error) {
 	fsys, _ := fs.Sub(fsEmbed, targetPath)
-	_, err := os.Stat(targetPath)
+	_, err := fsEmbed.Open(targetPath)
 	if err != nil {
 		return nil, err
 	}
