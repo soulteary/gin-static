@@ -1,7 +1,7 @@
 # Gin Static Middleware
 
 [![Run Tests](https://github.com/soulteary/gin-static/actions/workflows/go.yml/badge.svg)](https://github.com/soulteary/gin-static/actions/workflows/go.yml)
-[![codecov](https://codecov.io/gh/soulteary/static/branch/main/graph/badge.svg)](https://codecov.io/gh/soulteary/static)
+[![codecov](https://codecov.io/gh/soulteary/gin-static/graph/badge.svg?token=8Z9AVSBNMG)](https://codecov.io/gh/soulteary/gin-static)
 [![Go Report Card](https://goreportcard.com/badge/github.com/soulteary/gin-static)](https://goreportcard.com/report/github.com/soulteary/gin-static)
 [![GoDoc](https://godoc.org/github.com/soulteary/gin-static?status.svg)](https://godoc.org/github.com/soulteary/gin-static)
 

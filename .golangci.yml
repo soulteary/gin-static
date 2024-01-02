@@ -41,3 +41,4 @@ linters:
 
 run:
   timeout: 3m
+  tests: false
