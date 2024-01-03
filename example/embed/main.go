@@ -3,11 +3,9 @@ package main
 import (
 	"embed"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	static "github.com/soulteary/gin-static"
 )
 
 //go:embed public
@@ -16,12 +14,26 @@ var EmbedFS embed.FS
 func main() {
 	r := gin.Default()
 
-	staticFiles, err := static.EmbedFolder(EmbedFS, "public/page")
-	if err != nil {
-		log.Fatalln("initialization of embed folder failed:", err)
-	} else {
-		r.Use(static.Serve("/", staticFiles))
-	}
+	// method 1: use as Gin Router
+	// trim embedfs path `public/page`, and use it as url path `/`
+	// r.GET("/", static.ServeEmbed("public/page", EmbedFS))
+
+	// method 2: use as middleware
+	// trim embedfs path `public/page`, the embedfs path start with `/`
+	// r.Use(static.ServeEmbed("public/page", EmbedFS))
+
+	// method 2.1: use as middleware
+	// trim embedfs path `public/page`, the embedfs path start with `/public/page`
+	// r.Use(static.ServeEmbed("", EmbedFS))
+
+	// method 3: use as manual
+	// trim embedfs path `public/page`, the embedfs path start with `/public/page`
+	// staticFiles, err := static.EmbedFolder(EmbedFS, "public/page")
+	// if err != nil {
+	// 	log.Fatalln("initialization of embed folder failed:", err)
+	// } else {
+	// 	r.Use(static.Serve("/", staticFiles))
+	// }
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(200, "test")
