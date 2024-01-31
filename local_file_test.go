@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soulteary/gin-static"
+	static "github.com/soulteary/gin-static"
 	"github.com/stretchr/testify/assert"
 )
 

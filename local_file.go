@@ -9,8 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const INDEX = "index.html"
-
 type localFileSystem struct {
 	http.FileSystem
 	root    string
@@ -25,17 +23,16 @@ func LocalFile(root string, indexes bool) *localFileSystem {
 	}
 }
 
-func (l *localFileSystem) Exists(prefix string, filepath string) bool {
-	if p := strings.TrimPrefix(filepath, prefix); len(p) < len(filepath) {
-		name := path.Join(l.root, p)
+func (l *localFileSystem) Exists(prefix string, file string) bool {
+	if p := strings.TrimPrefix(file, prefix); len(p) < len(file) {
+		name := path.Join(l.root, path.Clean(p))
 		stats, err := os.Stat(name)
 		if err != nil {
 			return false
 		}
 		if stats.IsDir() {
 			if !l.indexes {
-				index := path.Join(name, INDEX)
-				_, err := os.Stat(index)
+				_, err := os.Stat(path.Join(name, "index.html"))
 				if err != nil {
 					return false
 				}
