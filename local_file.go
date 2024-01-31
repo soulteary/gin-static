@@ -3,7 +3,7 @@ package static
 import (
 	"net/http"
 	"os"
-	"path"
+	"path/filepath"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -25,16 +25,16 @@ func LocalFile(root string, indexes bool) *localFileSystem {
 	}
 }
 
-func (l *localFileSystem) Exists(prefix string, filepath string) bool {
-	if p := strings.TrimPrefix(filepath, prefix); len(p) < len(filepath) {
-		name := path.Join(l.root, p)
+func (l *localFileSystem) Exists(prefix string, file string) bool {
+	if p := strings.TrimPrefix(file, prefix); len(p) < len(file) {
+		name := filepath.Join(l.root, p)
 		stats, err := os.Stat(name)
 		if err != nil {
 			return false
 		}
 		if stats.IsDir() {
 			if !l.indexes {
-				index := path.Join(name, INDEX)
+				index := filepath.Join(name, INDEX)
 				_, err := os.Stat(index)
 				if err != nil {
 					return false
