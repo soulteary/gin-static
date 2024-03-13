@@ -134,3 +134,24 @@ func TestListIndex(t *testing.T) {
 	w = PerformRequest(router, "GET", "/")
 	assert.Contains(t, w.Body.String(), `<a href="`+filename)
 }
+
+func TestCache(t *testing.T) {
+	// SETUP file
+	testRoot, _ := os.Getwd()
+	f, err := os.CreateTemp(testRoot, "")
+	if err != nil {
+		t.Error(err)
+	}
+	defer os.Remove(f.Name())
+	_, _ = f.WriteString("Gin Web Framework")
+	f.Close()
+
+	dir, filename := filepath.Split(f.Name())
+
+	router := gin.New()
+	router.Use(static.ServeCached("/", static.LocalFile(dir, true), 3600))
+
+	w := PerformRequest(router, "GET", "/"+filename)
+	assert.Equal(t, w.Code, http.StatusOK)
+	assert.Equal(t, w.Header().Get("Cache-Control"), "max-age=3600")
+}
