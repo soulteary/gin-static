@@ -54,6 +54,7 @@ linters-settings:
           - os
           - path
           - strings
+          - fmt
 
 run:
   timeout: 3m
