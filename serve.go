@@ -21,7 +21,8 @@ func Serve(urlPrefix string, fs ServeFileSystem) gin.HandlerFunc {
 	return ServeCached(urlPrefix, fs, 0)
 }
 
-// ServeCached returns a middleware handler that similar as Serve but with the Cache-Control Header set as passed in the cacheAge parameter
+// ServeCached returns a middleware handler that similar as Serve
+// but with the Cache-Control Header set as passed in the cacheAge parameter
 func ServeCached(urlPrefix string, fs ServeFileSystem, cacheAge uint) gin.HandlerFunc {
 	fileserver := http.FileServer(fs)
 	if urlPrefix != "" {
