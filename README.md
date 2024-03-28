@@ -7,7 +7,7 @@
 
 Static middleware, support both local files and embed filesystem.
 
-No historical burden, using go 1.21, 100% code coverage.
+No historical burden, using go 1.22, 100% code coverage.
 
 ## Quick Start
 
