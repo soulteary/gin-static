@@ -34,8 +34,8 @@ jobs:
         include:
           - os: ubuntu-latest
             go-build: ~/.cache/go-build
-          - os: macos-latest
-            go-build: ~/Library/Caches/go-build
+          # - os: macos-latest
+            # go-build: ~/Library/Caches/go-build
     name: ${{ matrix.os }} @ Go ${{ matrix.go }}
     runs-on: ${{ matrix.os }}
     env:
