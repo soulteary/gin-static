@@ -26,6 +26,11 @@ func LocalFile(root string, indexes bool) *localFileSystem {
 func (l *localFileSystem) Exists(prefix string, file string) bool {
 	if p := strings.TrimPrefix(file, prefix); len(p) < len(file) {
 		name := path.Join(l.root, path.Clean(p))
+
+		if strings.Contains(name, "\\") || strings.Contains(name, "..") {
+			return false
+		}
+
 		stats, err := os.Stat(name)
 		if err != nil {
 			return false

@@ -31,4 +31,12 @@ func TestLocalFile(t *testing.T) {
 
 	w = PerformRequest(router, "GET", "/")
 	assert.Contains(t, w.Body.String(), `<a href="`+filename)
+
+	w = PerformRequest(router, "GET", "/"+"../"+filename)
+	assert.Equal(t, w.Code, 404)
+	assert.Equal(t, w.Body.String(), "404 page not found")
+
+	w = PerformRequest(router, "GET", "/"+"\\"+filename)
+	assert.Equal(t, w.Code, 404)
+	assert.Equal(t, w.Body.String(), "404 page not found")
 }
