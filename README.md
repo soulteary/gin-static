@@ -5,9 +5,10 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/soulteary/gin-static)](https://goreportcard.com/report/github.com/soulteary/gin-static)
 [![GoDoc](https://godoc.org/github.com/soulteary/gin-static?status.svg)](https://godoc.org/github.com/soulteary/gin-static)
 
-Static middleware, support both local files and embed filesystem.
+**No Security Error, No uncovered function, No obsolete code.**
 
-No historical burden, using go 1.22, 100% code coverage.
+- Supercharged static middleware: seamlessly support local files and embedded filesystem for an unparalleled lightning-fast experience.
+- Break free from historical burdens and embrace the new era of Go 1.22. With 100% code coverage, enjoy the perfect blend of quality and performance!
 
 ## Quick Start
 
