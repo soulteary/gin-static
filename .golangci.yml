@@ -4,8 +4,6 @@ linters:
   fast: false
   enable:
     - bodyclose
-    - deadcode
-    - depguard
     - dogsled
     - dupl
     - errcheck
@@ -29,13 +27,11 @@ linters:
     - nolintlint
     - rowserrcheck
     - staticcheck
-    - structcheck
     - stylecheck
     - typecheck
     - unconvert
     - unparam
     - unused
-    - varcheck
     - whitespace
     - gofumpt
 
@@ -46,6 +42,7 @@ linters-settings:
         files:
           - $all
           - "!$test"
+          - "!*_test.go"
         allow:
           - github.com/gin-gonic/gin
           - embed
@@ -58,4 +55,3 @@ linters-settings:
 
 run:
   timeout: 3m
-  tests: false

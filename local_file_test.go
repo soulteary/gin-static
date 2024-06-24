@@ -18,8 +18,8 @@ func TestLocalFile(t *testing.T) {
 		t.Error(err)
 	}
 	defer os.Remove(f.Name())
-	f.WriteString("Gin Web Framework")
-	f.Close()
+	_, _ = f.WriteString("Gin Web Framework")
+	_ = f.Close()
 
 	dir, filename := filepath.Split(f.Name())
 	router := gin.New()

@@ -16,7 +16,7 @@ import (
 var testFS embed.FS
 
 func TestEmbedFolderWithRedir(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		targetURL string // input
 		httpCode  int    // expected http code
 		httpBody  string // expected http body
@@ -50,7 +50,7 @@ func TestEmbedFolderWithRedir(t *testing.T) {
 }
 
 func TestEmbedFolderWithoutRedir(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		targetURL string // input
 		httpCode  int    // expected http code
 		httpBody  string // expected http body
@@ -118,7 +118,7 @@ func TestCreateEmbed(t *testing.T) {
 }
 
 func TestServEmbed(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		targetURL string // input
 		httpCode  int    // expected http code
 		httpBody  string // expected http body
@@ -162,6 +162,9 @@ func TestServEmbed(t *testing.T) {
 }
 
 func TestServEmbedErr(t *testing.T) {
+	embedDir := "111111test/data/server"
+	message := fmt.Sprintf("open %s: file does not exist", embedDir)
+
 	tests := []struct {
 		name   string
 		URL    string
@@ -172,12 +175,12 @@ func TestServEmbedErr(t *testing.T) {
 			name:   "Invalid Path",
 			URL:    "/test/data/server/nonexistingdirectory/nonexistingdirectory",
 			Code:   http.StatusInternalServerError,
-			Result: "{\"error\":\"open 111111test/data/server: file does not exist\",\"message\":\"initialization of embed folder failed\"}",
+			Result: fmt.Sprintf("{\"error\":\"%s\",\"message\":\"initialization of embed folder failed\"}", message),
 		},
 	}
 
 	router := gin.New()
-	router.Use(static.ServeEmbed("111111test/data/server", testFS))
+	router.Use(static.ServeEmbed(embedDir, testFS))
 	for _, tt := range tests {
 		w := PerformRequest(router, "GET", tt.URL)
 		assert.Equal(t, w.Code, tt.Code)
