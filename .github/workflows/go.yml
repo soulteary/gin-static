@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 env:
-  GO_VERSION: "1.22.2"
+  GO_VERSION: "1.22.4"
 
 jobs:
   lint:
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        go: [ "1.22.2" ]
+        go: [ "1.22.4" ]
         include:
           - os: ubuntu-latest
             go-build: ~/.cache/go-build
