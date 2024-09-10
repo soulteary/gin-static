@@ -1,5 +1,3 @@
-project_name: queue
-
 builds:
   - # If true, skip the build.
     # Useful for library projects.
@@ -20,7 +18,7 @@ changelog:
   # - `github-native`: uses the GitHub release notes generation API, disables the groups feature.
   #
   # Defaults to `git`.
-  use: git
+  use: github
 
   # Sorts the changelog by the commit's messages.
   # Could either be asc, desc or empty
@@ -45,12 +43,3 @@ changelog:
       order: 2
     - title: Others
       order: 999
-
-  filters:
-    # Commit messages matching the regexp listed here will be removed from
-    # the changelog
-    # Default is empty
-    exclude:
-      - "^docs"
-      - "CICD"
-      - typo
