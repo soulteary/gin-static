@@ -1,6 +1,6 @@
 module gin-static-embed-example
 
-go 1.22.4
+go 1.23.0
 
 require github.com/gin-gonic/gin v1.10.0
 
